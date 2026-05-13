@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_article_article_contents",
+  "info": {
+    "displayName": "rich_text"
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultMarkdown"
+      },
+      "required": true
+    },
+    "faq": {
+      "type": "component",
+      "component": "article.faq",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

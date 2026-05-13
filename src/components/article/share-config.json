@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_article_share_configs",
+  "info": {
+    "displayName": "share_config"
+  },
+  "options": {},
+  "attributes": {
+    "enableShare": {
+      "type": "boolean"
+    },
+    "shareText": {
+      "type": "string"
+    },
+    "sharePlatforms": {
+      "type": "component",
+      "component": "article.share-platform-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

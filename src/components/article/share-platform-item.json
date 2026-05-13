@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_article_share_platform_items",
+  "info": {
+    "displayName": "share_platform_item"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "twitter",
+        "linkedin",
+        "reddit",
+        "copyLink"
+      ]
+    }
+  },
+  "config": {}
+}

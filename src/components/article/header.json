@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_article_headers",
+  "info": {
+    "displayName": "header"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "readingTime": {
+      "type": "integer"
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "article_status": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "draft",
+        "published"
+      ]
+    }
+  },
+  "config": {}
+}

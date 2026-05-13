@@ -4,30 +4,27 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article",
-    "description": "Create your blog content"
+    "displayName": "Article"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
+    "seo_matadata": {
+      "type": "component",
+      "component": "article.seo-matadata",
+      "repeatable": false
     },
-    "description": {
-      "type": "text",
-      "maxLength": 80
-    },
-    "slug": {
-      "type": "uid",
-      "targetField": "title"
+    "header": {
+      "type": "component",
+      "component": "article.header",
+      "repeatable": false
     },
     "cover": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": ["images", "files", "videos"]
+      "type": "component",
+      "component": "article.cover-info",
+      "repeatable": false
     },
     "author": {
       "type": "relation",
@@ -41,9 +38,30 @@
       "target": "api::category.category",
       "inversedBy": "articles"
     },
-    "blocks": {
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "articles"
+    },
+    "cta": {
+      "type": "component",
+      "component": "article.cta",
+      "repeatable": false
+    },
+    "stickyToc": {
+      "type": "boolean"
+    },
+    "share_config": {
+      "type": "component",
+      "component": "article.share-config",
+      "repeatable": false
+    },
+    "content": {
       "type": "dynamiczone",
-      "components": ["shared.media", "shared.quote", "shared.rich-text", "shared.slider"]
+      "components": [
+        "article.article-content"
+      ]
     }
   }
 }

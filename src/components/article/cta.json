@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_article_ctas",
+  "info": {
+    "displayName": "cta"
+  },
+  "options": {},
+  "attributes": {
+    "ctaType": {
+      "type": "enumeration",
+      "enum": [
+        "inline",
+        "banner",
+        "sidebar"
+      ]
+    },
+    "ctaTitle": {
+      "type": "string"
+    },
+    "ctaDescription": {
+      "type": "string"
+    },
+    "ctaButtonText": {
+      "type": "string"
+    },
+    "ctaButtonUrl": {
+      "type": "string"
+    },
+    "ctaPosition": {
+      "type": "enumeration",
+      "enum": [
+        "top",
+        "middle",
+        "bottom"
+      ]
+    }
+  },
+  "config": {}
+}

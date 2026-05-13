@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_article_seo_matadata",
+  "info": {
+    "displayName": "seo_matadata"
+  },
+  "options": {},
+  "attributes": {
+    "seoTitle": {
+      "type": "string",
+      "required": true
+    },
+    "seoDescription": {
+      "type": "text",
+      "required": true
+    },
+    "seoKeywords": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
