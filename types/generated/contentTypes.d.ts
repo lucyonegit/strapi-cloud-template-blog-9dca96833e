@@ -441,6 +441,9 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    article_status: Schema.Attribute.Enumeration<['draft', 'published']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'published'>;
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
     content: Schema.Attribute.DynamicZone<['article.article-content']> &
@@ -450,7 +453,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     cta: Schema.Attribute.Component<'article.cta', false>;
-    header: Schema.Attribute.Component<'article.header', false>;
+    isFeatured: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -458,11 +461,15 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    readingTime: Schema.Attribute.Integer;
     related_config: Schema.Attribute.Component<'article.related-config', false>;
     seo_matadata: Schema.Attribute.Component<'article.seo-matadata', false>;
     share_config: Schema.Attribute.Component<'article.share-config', false>;
+    slug: Schema.Attribute.String & Schema.Attribute.Required;
     stickyToc: Schema.Attribute.Boolean;
+    subTitle: Schema.Attribute.String;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

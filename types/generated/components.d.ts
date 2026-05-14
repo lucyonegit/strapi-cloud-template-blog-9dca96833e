@@ -59,22 +59,6 @@ export interface ArticleFaq extends Struct.ComponentSchema {
   };
 }
 
-export interface ArticleHeader extends Struct.ComponentSchema {
-  collectionName: 'components_article_headers';
-  info: {
-    displayName: 'header';
-  };
-  attributes: {
-    article_status: Schema.Attribute.Enumeration<['draft', 'published']> &
-      Schema.Attribute.Required;
-    isFeatured: Schema.Attribute.Boolean;
-    readingTime: Schema.Attribute.Integer;
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
-    subTitle: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface ArticleRelatedConfig extends Struct.ComponentSchema {
   collectionName: 'components_article_related_configs';
   info: {
@@ -136,7 +120,6 @@ declare module '@strapi/strapi' {
       'article.cover-info': ArticleCoverInfo;
       'article.cta': ArticleCta;
       'article.faq': ArticleFaq;
-      'article.header': ArticleHeader;
       'article.related-config': ArticleRelatedConfig;
       'article.seo-matadata': ArticleSeoMatadata;
       'article.share-config': ArticleShareConfig;

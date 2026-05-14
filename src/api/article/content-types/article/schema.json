@@ -11,19 +11,40 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "seo_matadata": {
-      "type": "component",
-      "component": "article.seo-matadata",
-      "repeatable": false
+    "title": {
+      "type": "string",
+      "required": true
     },
-    "header": {
-      "type": "component",
-      "component": "article.header",
-      "repeatable": false
+    "subTitle": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "readingTime": {
+      "type": "integer"
+    },
+    "article_status": {
+      "type": "enumeration",
+      "required": true,
+      "default": "published",
+      "enum": [
+        "draft",
+        "published"
+      ]
     },
     "cover": {
       "type": "component",
       "component": "article.cover-info",
+      "repeatable": false
+    },
+    "seo_matadata": {
+      "type": "component",
+      "component": "article.seo-matadata",
       "repeatable": false
     },
     "author": {
