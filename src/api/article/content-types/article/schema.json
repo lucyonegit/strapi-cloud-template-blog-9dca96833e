@@ -61,7 +61,13 @@
       "type": "dynamiczone",
       "components": [
         "article.article-content"
-      ]
+      ],
+      "required": true
+    },
+    "related_config": {
+      "type": "component",
+      "component": "article.related-config",
+      "repeatable": false
     }
   }
 }

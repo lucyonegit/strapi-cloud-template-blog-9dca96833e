@@ -75,6 +75,21 @@ export interface ArticleHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface ArticleRelatedConfig extends Struct.ComponentSchema {
+  collectionName: 'components_article_related_configs';
+  info: {
+    displayName: 'related_config';
+  };
+  attributes: {
+    autoRelated: Schema.Attribute.Boolean;
+    related_posts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::article.article'
+    >;
+    relatedCount: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
+  };
+}
+
 export interface ArticleSeoMatadata extends Struct.ComponentSchema {
   collectionName: 'components_article_seo_matadata';
   info: {
@@ -122,6 +137,7 @@ declare module '@strapi/strapi' {
       'article.cta': ArticleCta;
       'article.faq': ArticleFaq;
       'article.header': ArticleHeader;
+      'article.related-config': ArticleRelatedConfig;
       'article.seo-matadata': ArticleSeoMatadata;
       'article.share-config': ArticleShareConfig;
       'article.share-platform-item': ArticleSharePlatformItem;

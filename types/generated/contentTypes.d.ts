@@ -443,7 +443,8 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
-    content: Schema.Attribute.DynamicZone<['article.article-content']>;
+    content: Schema.Attribute.DynamicZone<['article.article-content']> &
+      Schema.Attribute.Required;
     cover: Schema.Attribute.Component<'article.cover-info', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -457,6 +458,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    related_config: Schema.Attribute.Component<'article.related-config', false>;
     seo_matadata: Schema.Attribute.Component<'article.seo-matadata', false>;
     share_config: Schema.Attribute.Component<'article.share-config', false>;
     stickyToc: Schema.Attribute.Boolean;

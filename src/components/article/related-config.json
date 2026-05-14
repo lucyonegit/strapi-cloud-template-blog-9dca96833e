@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_article_related_configs",
+  "info": {
+    "displayName": "related_config"
+  },
+  "options": {},
+  "attributes": {
+    "related_posts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "autoRelated": {
+      "type": "boolean"
+    },
+    "relatedCount": {
+      "type": "integer",
+      "default": 3
+    }
+  },
+  "config": {}
+}
