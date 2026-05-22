@@ -14,7 +14,8 @@
       "required": true
     },
     "seoKeywords": {
-      "type": "text"
+      "type": "text",
+      "required": true
     }
   },
   "config": {}

@@ -28,7 +28,7 @@ export interface ArticleCoverInfo extends Struct.ComponentSchema {
       'images' | 'files' | 'videos' | 'audios'
     > &
       Schema.Attribute.Required;
-    coverImageAlt: Schema.Attribute.String;
+    coverImageAlt: Schema.Attribute.String & Schema.Attribute.Required;
     videoEmbed: Schema.Attribute.String;
   };
 }
@@ -81,7 +81,7 @@ export interface ArticleSeoMatadata extends Struct.ComponentSchema {
   };
   attributes: {
     seoDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    seoKeywords: Schema.Attribute.Text;
+    seoKeywords: Schema.Attribute.Text & Schema.Attribute.Required;
     seoTitle: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }

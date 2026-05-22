@@ -24,13 +24,14 @@
       },
       "required": true
     },
-    "subTitle": {
-      "type": "string",
+    "readingTime": {
+      "type": "integer",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
     },
     "slug": {
       "type": "string",
@@ -41,16 +42,66 @@
       },
       "required": true
     },
-    "isFeatured": {
-      "type": "boolean",
+    "cover": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "article.cover-info",
+      "repeatable": false,
+      "required": true
+    },
+    "seo_matadata": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "article.seo-matadata",
+      "repeatable": false,
+      "required": true
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "articles"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "article.article-content"
+      ],
+      "required": true
+    },
+    "cta": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "article.cta",
+      "repeatable": false
+    },
+    "subTitle": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "readingTime": {
-      "type": "integer",
+    "isFeatured": {
+      "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -64,43 +115,17 @@
           "localized": true
         }
       },
-      "required": true,
+      "required": false,
       "default": "published",
       "enum": [
         "draft",
         "published"
       ]
     },
-    "cover": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "article.cover-info",
-      "repeatable": false
-    },
-    "seo_matadata": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "article.seo-matadata",
-      "repeatable": false
-    },
     "author": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::author.author",
-      "inversedBy": "articles"
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
       "inversedBy": "articles"
     },
     "tags": {
@@ -109,23 +134,14 @@
       "target": "api::tag.tag",
       "inversedBy": "articles"
     },
-    "cta": {
-      "type": "component",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "article.cta",
-      "repeatable": false
-    },
     "stickyToc": {
       "type": "boolean",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "default": true
     },
     "share_config": {
       "type": "component",
@@ -136,18 +152,6 @@
       },
       "component": "article.share-config",
       "repeatable": false
-    },
-    "content": {
-      "type": "dynamiczone",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "components": [
-        "article.article-content"
-      ],
-      "required": true
     },
     "related_config": {
       "type": "component",

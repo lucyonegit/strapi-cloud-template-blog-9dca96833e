@@ -17,7 +17,8 @@
       ]
     },
     "coverImageAlt": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "videoEmbed": {
       "type": "string"
