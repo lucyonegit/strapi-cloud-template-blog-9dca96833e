@@ -632,6 +632,7 @@ export interface ApiChangelogChangelog extends Struct.CollectionTypeSchema {
           preset: 'defaultMarkdown';
         }
       >;
+    content_text: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

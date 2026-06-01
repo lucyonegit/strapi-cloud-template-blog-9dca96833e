@@ -37,6 +37,9 @@
       "type": "component",
       "component": "changelog.improvements",
       "repeatable": true
+    },
+    "content_text": {
+      "type": "text"
     }
   }
 }
