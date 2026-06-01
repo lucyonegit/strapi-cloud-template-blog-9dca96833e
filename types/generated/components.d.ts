@@ -113,6 +113,16 @@ export interface ArticleSharePlatformItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ChangelogImprovements extends Struct.ComponentSchema {
+  collectionName: 'components_changelog_improvements';
+  info: {
+    displayName: 'improvements';
+  };
+  attributes: {
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -124,6 +134,7 @@ declare module '@strapi/strapi' {
       'article.seo-matadata': ArticleSeoMatadata;
       'article.share-config': ArticleShareConfig;
       'article.share-platform-item': ArticleSharePlatformItem;
+      'changelog.improvements': ChangelogImprovements;
     }
   }
 }

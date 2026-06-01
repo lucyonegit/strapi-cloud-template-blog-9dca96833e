@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_changelog_improvements",
+  "info": {
+    "displayName": "improvements"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  },
+  "config": {}
+}
