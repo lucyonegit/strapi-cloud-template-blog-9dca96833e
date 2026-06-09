@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "alternative_pages",
+  "info": {
+    "singularName": "alternative-page",
+    "pluralName": "alternative-pages",
+    "displayName": "alternative-page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_title": {
+      "type": "string",
+      "required": true
+    },
+    "hero_description": {
+      "type": "string",
+      "required": true
+    },
+    "hero_cta_text": {
+      "type": "string"
+    },
+    "hero_cta_link": {
+      "type": "string"
+    },
+    "bottom_cta_title": {
+      "type": "string"
+    },
+    "bottom_cta_description": {
+      "type": "string"
+    },
+    "bottom_cta_button_text": {
+      "type": "string"
+    },
+    "bottom_cta_button_link": {
+      "type": "string"
+    },
+    "bottom_cta_icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

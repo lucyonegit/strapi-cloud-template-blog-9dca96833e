@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "alternatives",
+  "info": {
+    "singularName": "alternative",
+    "pluralName": "alternatives",
+    "displayName": "Alternative"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "baseInfo": {
+      "type": "component",
+      "component": "pseo.pseo",
+      "repeatable": false
+    },
+    "competitor_name": {
+      "type": "string"
+    },
+    "competitor_logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "card_category": {
+      "type": "string"
+    },
+    "card_description": {
+      "type": "string",
+      "maxLength": 120
+    }
+  }
+}

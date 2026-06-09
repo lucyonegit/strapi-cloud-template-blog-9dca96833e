@@ -430,6 +430,82 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAlternativePageAlternativePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'alternative_pages';
+  info: {
+    displayName: 'alternative-page';
+    pluralName: 'alternative-pages';
+    singularName: 'alternative-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    bottom_cta_button_link: Schema.Attribute.String;
+    bottom_cta_button_text: Schema.Attribute.String;
+    bottom_cta_description: Schema.Attribute.String;
+    bottom_cta_icon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    bottom_cta_title: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hero_cta_link: Schema.Attribute.String;
+    hero_cta_text: Schema.Attribute.String;
+    hero_description: Schema.Attribute.String & Schema.Attribute.Required;
+    hero_title: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alternative-page.alternative-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAlternativeAlternative extends Struct.CollectionTypeSchema {
+  collectionName: 'alternatives';
+  info: {
+    displayName: 'Alternative';
+    pluralName: 'alternatives';
+    singularName: 'alternative';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    baseInfo: Schema.Attribute.Component<'pseo.pseo', false>;
+    card_category: Schema.Attribute.String;
+    card_description: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    competitor_logo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    competitor_name: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::alternative.alternative'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -1190,6 +1266,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::alternative-page.alternative-page': ApiAlternativePageAlternativePage;
+      'api::alternative.alternative': ApiAlternativeAlternative;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
