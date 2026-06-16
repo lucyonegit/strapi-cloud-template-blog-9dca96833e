@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pseo_landing_item_categories",
+  "info": {
+    "singularName": "pseo-landing-item-category",
+    "pluralName": "pseo-landing-item-categories",
+    "displayName": "PSEO-Item-Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "pseo_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pseo-item.pseo-item",
+      "mappedBy": "card_category"
+    }
+  }
+}

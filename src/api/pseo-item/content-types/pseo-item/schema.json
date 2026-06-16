@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pseo_items",
+  "info": {
+    "singularName": "pseo-item",
+    "pluralName": "pseo-items",
+    "displayName": "PSEO-Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "html_body": {
+      "type": "text",
+      "required": true
+    },
+    "sort_order": {
+      "type": "integer",
+      "required": false,
+      "default": 0
+    },
+    "card_title": {
+      "type": "string",
+      "required": true
+    },
+    "card_subtitle": {
+      "type": "string"
+    },
+    "card_description": {
+      "type": "string",
+      "maxLength": 120,
+      "required": true
+    },
+    "card_image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "card_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pseo-landing-item-category.pseo-landing-item-category",
+      "inversedBy": "pseo_items"
+    },
+    "card_tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pseo-card-tag.pseo-card-tag",
+      "mappedBy": "pseo_items"
+    },
+    "landing": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pseo-landind.pseo-landind",
+      "inversedBy": "pseo_items"
+    },
+    "preview_url": {
+      "type": "string"
+    },
+    "external_url": {
+      "type": "string"
+    }
+  }
+}

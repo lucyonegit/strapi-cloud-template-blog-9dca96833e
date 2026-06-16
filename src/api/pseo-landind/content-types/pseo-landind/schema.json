@@ -1,0 +1,123 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pseo_landinds",
+  "info": {
+    "singularName": "pseo-landind",
+    "pluralName": "pseo-landinds",
+    "displayName": "PSEO-Landing"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "path": {
+      "type": "string",
+      "required": true,
+      "regex": "^[a-z0-9-]+(?:\\/[a-z0-9-]+)*$"
+    },
+    "name": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::pseo-layout.pseo-layout",
+      "inversedBy": "pseo_landinds"
+    },
+    "keyword_pattern": {
+      "type": "string"
+    },
+    "pattern_notes": {
+      "type": "text"
+    },
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_description": {
+      "type": "text"
+    },
+    "hero_cta_text": {
+      "type": "string"
+    },
+    "hero_cta_link": {
+      "type": "string"
+    },
+    "faq": {
+      "type": "component",
+      "component": "article.faq",
+      "repeatable": true
+    },
+    "bottom_cta_title": {
+      "type": "string"
+    },
+    "bottom_cta_description": {
+      "type": "string"
+    },
+    "bottom_cta_button_text": {
+      "type": "string"
+    },
+    "bottom_cta_button_link": {
+      "type": "string"
+    },
+    "seo_title": {
+      "type": "string"
+    },
+    "seo_description": {
+      "type": "string"
+    },
+    "og_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "search_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "chatbot_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "compare_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "alphabet_index_enabled": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "chatbot_placeholder": {
+      "type": "string"
+    },
+    "chatbot_system_prompt": {
+      "type": "string"
+    },
+    "pseo_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pseo-item.pseo-item",
+      "mappedBy": "landing"
+    },
+    "hero_cta_banner_img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "bottom_cta_banner_img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

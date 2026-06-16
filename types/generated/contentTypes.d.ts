@@ -654,6 +654,221 @@ export interface ApiChangelogChangelog extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPseoCardTagPseoCardTag extends Struct.CollectionTypeSchema {
+  collectionName: 'pseo_card_tags';
+  info: {
+    displayName: 'PSEO-Item-Tag';
+    pluralName: 'pseo-card-tags';
+    singularName: 'pseo-card-tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-card-tag.pseo-card-tag'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    pseo_items: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pseo-item.pseo-item'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPseoItemPseoItem extends Struct.CollectionTypeSchema {
+  collectionName: 'pseo_items';
+  info: {
+    displayName: 'PSEO-Item';
+    pluralName: 'pseo-items';
+    singularName: 'pseo-item';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    card_category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::pseo-landing-item-category.pseo-landing-item-category'
+    >;
+    card_description: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 120;
+      }>;
+    card_image: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.Required;
+    card_subtitle: Schema.Attribute.String;
+    card_tags: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::pseo-card-tag.pseo-card-tag'
+    >;
+    card_title: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    external_url: Schema.Attribute.String;
+    html_body: Schema.Attribute.Text & Schema.Attribute.Required;
+    landing: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::pseo-landind.pseo-landind'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-item.pseo-item'
+    > &
+      Schema.Attribute.Private;
+    preview_url: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    sort_order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPseoLandindPseoLandind extends Struct.CollectionTypeSchema {
+  collectionName: 'pseo_landinds';
+  info: {
+    displayName: 'PSEO-Landing';
+    pluralName: 'pseo-landinds';
+    singularName: 'pseo-landind';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    alphabet_index_enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    bottom_cta_banner_img: Schema.Attribute.Media<'images'>;
+    bottom_cta_button_link: Schema.Attribute.String;
+    bottom_cta_button_text: Schema.Attribute.String;
+    bottom_cta_description: Schema.Attribute.String;
+    bottom_cta_title: Schema.Attribute.String;
+    chatbot_enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    chatbot_placeholder: Schema.Attribute.String;
+    chatbot_system_prompt: Schema.Attribute.String;
+    compare_enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    faq: Schema.Attribute.Component<'article.faq', true>;
+    hero_cta_banner_img: Schema.Attribute.Media<'images'>;
+    hero_cta_link: Schema.Attribute.String;
+    hero_cta_text: Schema.Attribute.String;
+    hero_description: Schema.Attribute.Text;
+    hero_title: Schema.Attribute.String;
+    keyword_pattern: Schema.Attribute.String;
+    layout: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::pseo-layout.pseo-layout'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-landind.pseo-landind'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    og_image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    path: Schema.Attribute.String & Schema.Attribute.Required;
+    pattern_notes: Schema.Attribute.Text;
+    pseo_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-item.pseo-item'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    search_enabled: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    seo_description: Schema.Attribute.String;
+    seo_title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPseoLandingItemCategoryPseoLandingItemCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'pseo_landing_item_categories';
+  info: {
+    displayName: 'PSEO-Item-Category';
+    pluralName: 'pseo-landing-item-categories';
+    singularName: 'pseo-landing-item-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-landing-item-category.pseo-landing-item-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    pseo_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-item.pseo-item'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPseoLayoutPseoLayout extends Struct.CollectionTypeSchema {
+  collectionName: 'pseo_layouts';
+  info: {
+    displayName: 'PSEO-Layout';
+    pluralName: 'pseo-layouts';
+    singularName: 'pseo-layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-layout.pseo-layout'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    pseo_landinds: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-landind.pseo-landind'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
@@ -1194,6 +1409,11 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::changelog.changelog': ApiChangelogChangelog;
+      'api::pseo-card-tag.pseo-card-tag': ApiPseoCardTagPseoCardTag;
+      'api::pseo-item.pseo-item': ApiPseoItemPseoItem;
+      'api::pseo-landind.pseo-landind': ApiPseoLandindPseoLandind;
+      'api::pseo-landing-item-category.pseo-landing-item-category': ApiPseoLandingItemCategoryPseoLandingItemCategory;
+      'api::pseo-layout.pseo-layout': ApiPseoLayoutPseoLayout;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

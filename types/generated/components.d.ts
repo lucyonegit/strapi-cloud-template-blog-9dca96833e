@@ -123,23 +123,6 @@ export interface ChangelogImprovements extends Struct.ComponentSchema {
   };
 }
 
-export interface PseoPseo extends Struct.ComponentSchema {
-  collectionName: 'components_pseo_pseos';
-  info: {
-    displayName: 'Pseo';
-  };
-  attributes: {
-    html_body: Schema.Attribute.Text & Schema.Attribute.Required;
-    last_review_at: Schema.Attribute.DateTime;
-    review_status: Schema.Attribute.Enumeration<
-      ['pending_review', 'approved', 'rejected']
-    > &
-      Schema.Attribute.DefaultTo<'pending_review'>;
-    slug: Schema.Attribute.String & Schema.Attribute.Required;
-    sort_order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -152,7 +135,6 @@ declare module '@strapi/strapi' {
       'article.share-config': ArticleShareConfig;
       'article.share-platform-item': ArticleSharePlatformItem;
       'changelog.improvements': ChangelogImprovements;
-      'pseo.pseo': PseoPseo;
     }
   }
 }

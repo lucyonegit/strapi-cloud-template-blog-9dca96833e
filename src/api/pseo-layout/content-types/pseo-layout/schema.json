@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pseo_layouts",
+  "info": {
+    "singularName": "pseo-layout",
+    "pluralName": "pseo-layouts",
+    "displayName": "PSEO-Layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pseo_landinds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pseo-landind.pseo-landind",
+      "mappedBy": "layout"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pseo_card_tags",
+  "info": {
+    "singularName": "pseo-card-tag",
+    "pluralName": "pseo-card-tags",
+    "displayName": "PSEO-Item-Tag"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "pseo_items": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::pseo-item.pseo-item",
+      "inversedBy": "card_tags"
+    }
+  }
+}
