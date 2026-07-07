@@ -162,6 +162,15 @@
       },
       "component": "article.related-config",
       "repeatable": false
+    },
+    "publish_time": {
+      "type": "datetime",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

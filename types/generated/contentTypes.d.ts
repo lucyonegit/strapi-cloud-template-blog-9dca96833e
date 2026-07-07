@@ -489,6 +489,13 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::article.article'
     >;
+    publish_time: Schema.Attribute.DateTime &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     readingTime: Schema.Attribute.Integer &
       Schema.Attribute.Required &
