@@ -493,7 +493,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -704,6 +704,11 @@ export interface ApiPseoItemPseoItem extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     card_category: Schema.Attribute.Relation<
       'manyToOne',
@@ -711,39 +716,92 @@ export interface ApiPseoItemPseoItem extends Struct.CollectionTypeSchema {
     >;
     card_description: Schema.Attribute.String &
       Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 120;
       }>;
     card_image: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.Required;
-    card_subtitle: Schema.Attribute.String;
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    card_subtitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     card_tags: Schema.Attribute.Relation<
       'manyToMany',
       'api::pseo-card-tag.pseo-card-tag'
     >;
-    card_title: Schema.Attribute.String & Schema.Attribute.Required;
+    card_title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    external_url: Schema.Attribute.String;
-    html_body: Schema.Attribute.Text & Schema.Attribute.Required;
+    external_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    html_body: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     landing: Schema.Attribute.Relation<
       'manyToOne',
       'api::pseo-landind.pseo-landind'
     >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::pseo-item.pseo-item'
-    > &
-      Schema.Attribute.Private;
-    preview_url: Schema.Attribute.String;
-    publish_time: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    >;
+    preview_url: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publish_time: Schema.Attribute.DateTime &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Unique;
-    sort_order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+      Schema.Attribute.Unique &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sort_order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
