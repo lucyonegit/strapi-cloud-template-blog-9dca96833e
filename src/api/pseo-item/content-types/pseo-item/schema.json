@@ -69,6 +69,10 @@
     },
     "external_url": {
       "type": "string"
+    },
+    "publish_time": {
+      "type": "datetime",
+      "required": true
     }
   }
 }

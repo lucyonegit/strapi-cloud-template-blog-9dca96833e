@@ -738,6 +738,7 @@ export interface ApiPseoItemPseoItem extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     preview_url: Schema.Attribute.String;
+    publish_time: Schema.Attribute.DateTime & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.String &
       Schema.Attribute.Required &
