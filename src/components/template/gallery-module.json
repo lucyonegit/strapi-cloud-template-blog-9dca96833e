@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_template_gallery_modules",
+  "info": {
+    "displayName": "gallery_module"
+  },
+  "options": {},
+  "attributes": {
+    "moduleDescription": {
+      "type": "text",
+      "required": true
+    },
+    "bulletPoints": {
+      "type": "component",
+      "component": "template.bullet-points",
+      "repeatable": true,
+      "required": true,
+      "min": 1,
+      "max": 6
+    }
+  },
+  "config": {}
+}

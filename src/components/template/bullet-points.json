@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_template_bullet_points",
+  "info": {
+    "displayName": "bulletPoints"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

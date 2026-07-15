@@ -123,6 +123,71 @@ export interface ChangelogImprovements extends Struct.ComponentSchema {
   };
 }
 
+export interface TemplateBulletPoints extends Struct.ComponentSchema {
+  collectionName: 'components_template_bullet_points';
+  info: {
+    displayName: 'bulletPoints';
+  };
+  attributes: {
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface TemplateFaq extends Struct.ComponentSchema {
+  collectionName: 'components_template_faqs';
+  info: {
+    displayName: 'faq';
+  };
+  attributes: {
+    answer: Schema.Attribute.String & Schema.Attribute.Required;
+    question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface TemplateGalleryModule extends Struct.ComponentSchema {
+  collectionName: 'components_template_gallery_modules';
+  info: {
+    displayName: 'gallery_module';
+  };
+  attributes: {
+    bulletPoints: Schema.Attribute.Component<'template.bullet-points', true> &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 6;
+          min: 1;
+        },
+        number
+      >;
+    moduleDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
+export interface TemplateTemplateCta extends Struct.ComponentSchema {
+  collectionName: 'components_template_template_ctas';
+  info: {
+    displayName: 'templateCta';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<'images'>;
+    buttonLink: Schema.Attribute.String & Schema.Attribute.Required;
+    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface TemplateTemplateDetailSliders extends Struct.ComponentSchema {
+  collectionName: 'components_template_template_detail_sliders';
+  info: {
+    displayName: 'template_detail_sliders';
+  };
+  attributes: {
+    alt: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -135,6 +200,11 @@ declare module '@strapi/strapi' {
       'article.share-config': ArticleShareConfig;
       'article.share-platform-item': ArticleSharePlatformItem;
       'changelog.improvements': ChangelogImprovements;
+      'template.bullet-points': TemplateBulletPoints;
+      'template.faq': TemplateFaq;
+      'template.gallery-module': TemplateGalleryModule;
+      'template.template-cta': TemplateTemplateCta;
+      'template.template-detail-sliders': TemplateTemplateDetailSliders;
     }
   }
 }
