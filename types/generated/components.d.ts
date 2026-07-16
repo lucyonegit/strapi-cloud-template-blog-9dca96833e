@@ -139,7 +139,7 @@ export interface TemplateFaq extends Struct.ComponentSchema {
     displayName: 'faq';
   };
   attributes: {
-    answer: Schema.Attribute.String & Schema.Attribute.Required;
+    answer: Schema.Attribute.Text & Schema.Attribute.Required;
     question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
