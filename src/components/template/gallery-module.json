@@ -7,7 +7,7 @@
   "attributes": {
     "moduleDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "bulletPoints": {
       "type": "component",

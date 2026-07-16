@@ -1203,7 +1203,6 @@ export interface ApiTemplateDetailPageTemplateDetailPage
         };
       }>;
     authorName: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1321,7 +1320,6 @@ export interface ApiTemplateDetailPageTemplateDetailPage
         };
       }>;
     templateName: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

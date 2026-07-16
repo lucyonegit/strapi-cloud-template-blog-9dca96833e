@@ -7,19 +7,19 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "subtitle": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "buttonText": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "buttonLink": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "backgroundImage": {
       "type": "media",

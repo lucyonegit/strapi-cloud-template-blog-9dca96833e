@@ -159,7 +159,7 @@ export interface TemplateGalleryModule extends Struct.ComponentSchema {
         },
         number
       >;
-    moduleDescription: Schema.Attribute.Text & Schema.Attribute.Required;
+    moduleDescription: Schema.Attribute.Text;
   };
 }
 
@@ -170,10 +170,10 @@ export interface TemplateTemplateCta extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundImage: Schema.Attribute.Media<'images'>;
-    buttonLink: Schema.Attribute.String & Schema.Attribute.Required;
-    buttonText: Schema.Attribute.String & Schema.Attribute.Required;
-    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    buttonLink: Schema.Attribute.String;
+    buttonText: Schema.Attribute.String;
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
   };
 }
 
