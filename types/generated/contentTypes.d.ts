@@ -1197,7 +1197,6 @@ export interface ApiTemplateDetailPageTemplateDetailPage
   };
   attributes: {
     authorAvatar: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
