@@ -1231,7 +1231,6 @@ export interface ApiTemplateDetailPageTemplateDetailPage
         };
       }>;
     embedUrl: Schema.Attribute.String &
-      Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
