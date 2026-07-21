@@ -947,6 +947,10 @@ export interface ApiPseoLandindPseoLandind extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    choiceness_pseo_items: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pseo-item.pseo-item'
+    >;
     compare_enabled: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

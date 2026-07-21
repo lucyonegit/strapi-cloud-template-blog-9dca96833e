@@ -242,6 +242,11 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "choiceness_pseo_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pseo-item.pseo-item"
     }
   }
 }
