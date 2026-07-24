@@ -270,5 +270,15 @@ async function main() {
 
 
 module.exports = async () => {
+  if (
+    strapi.config.environment === 'production' &&
+    process.env.RUN_SEED !== 'true'
+  ) {
+    strapi.log.info(
+      'Skipping example seed data in production. Set RUN_SEED=true to enable it explicitly.'
+    );
+    return;
+  }
+
   await seedExampleApp();
 };
